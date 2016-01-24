@@ -2,7 +2,7 @@
   word-wrap: break-word;
   margin-top: 30px;
   padding: 20px;
-  background-color: $white;
+  background-color: darken($baseBg, 10);
   border: 1px solid $black;
   @include clearfix();
 
