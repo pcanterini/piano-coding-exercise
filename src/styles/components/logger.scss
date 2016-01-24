@@ -3,7 +3,7 @@
   margin-top: 30px;
   padding: 20px;
   background-color: darken($baseBg, 10);
-  border: 1px solid $black;
+  border: 1px solid lighten($black, 50);
   min-height: 100px;
 
   span {

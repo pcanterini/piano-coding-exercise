@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 const propTypes = {
   updateKeyState: PropTypes.func.isRequired,
@@ -66,12 +67,21 @@ class Player extends Component {
   }
 
   render() {
-    const isValid = this.state.isValidInput.toString();
+    const isValid = this.state.isValidInput;
+    const statusClassNames = classNames({
+      valid: isValid,
+      inputStatus: true,
+    });
+    const playBtnClassNames = classNames({
+      disabled: !isValid,
+      btn: true,
+      'play-btn': true,
+    });
 
     return (
       <div className="player clearfix">
         <p>Valid Input formatting:
-          <span className="inputStatus"> {isValid}</span>
+          <span className={statusClassNames}> {isValid.toString()}</span>
         </p>
         <textarea
           className="playListInput"
@@ -81,7 +91,7 @@ class Player extends Component {
           ref="playerInput"
         />
         <button
-          className="btn play-btn"
+          className={playBtnClassNames}
           onClick={this._onClick}
         >Play</button>
       </div>
