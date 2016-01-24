@@ -1,0 +1,12 @@
+.logger {
+  word-wrap: break-word;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ddd;
+  border: 1px solid black;
+  min-height: 100px;
+
+  span {
+    padding: 10px;
+  }
+}

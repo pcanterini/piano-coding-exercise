@@ -1,0 +1,15 @@
+.wrapper{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.keyboard-container {
+  display: flex;
+  align-items: stretch;
+  height: 500px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
