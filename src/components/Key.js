@@ -11,13 +11,15 @@ class Key extends Component {
   constructor(props) {
     super(props);
 
-    this._onMouseDown = this._onMouseDown.bind(this);
+    // this._onMouseDown = this._onMouseDown.bind(this);
     this._onMouseUp = this._onMouseUp.bind(this);
   }
 
-  _onMouseDown() {
-    this.props.keyHandler(this.props.pianoKey.label);
-  }
+  _onMouseDown = () => this.props.keyHandler(this.props.pianoKey.label);
+
+  // _onMouseDown() {
+  //   this.props.keyHandler(this.props.pianoKey.label);
+  // }
 
   _onMouseUp() {
     this.props.keyHandler();
