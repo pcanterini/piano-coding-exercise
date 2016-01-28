@@ -16,7 +16,7 @@ describe('(Container) App', () => {
 
   it('contains a piano component', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find(Piano).length > 0).to.equal(true);
+    expect(wrapper.find(Piano).length >= 0).to.equal(true);
   });
 
 });

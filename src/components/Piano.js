@@ -77,6 +77,7 @@ class Piano extends Component {
   }
 
   renderKeys() {
+    // TODO: remove component and use arrow function
     const component = this;
     return this.state.keys.map(function mapKeys(key, i) {
       return (

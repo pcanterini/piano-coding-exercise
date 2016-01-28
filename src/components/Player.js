@@ -8,6 +8,7 @@ const propTypes = {
 
 class Player extends Component {
 
+  // TODO: Use static state
   constructor(props) {
     super(props);
 
@@ -16,6 +17,7 @@ class Player extends Component {
       inputStr: '',
     };
 
+    // TODO: Use arrow functions instead
     this._onChange = this._onChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this._onBlur = this._onBlur.bind(this);
@@ -85,7 +87,7 @@ class Player extends Component {
         </p>
         <textarea
           className="playListInput"
-          rows="10"
+          rows="5"
           onBlur={this._onBlur}
           onChange={this._onChange}
           ref="playerInput"
