@@ -9,6 +9,7 @@ const propTypes = {
 
 class Piano extends Component {
 
+  // TODO: Contructor can probably be romoved, use static for state intead
   constructor(props) {
     super(props);
 
@@ -30,6 +31,7 @@ class Piano extends Component {
       loggerData: [],
     };
 
+    // TODO: Use arrow functions for autobinding
     this.updateKeyState = this.updateKeyState.bind(this);
     this.playPiano = this.playPiano.bind(this);
   }

@@ -7,6 +7,7 @@ class App extends Component {
     super(props);
   }
 
+  // TODO: Can probably be removed (check tests)
   handleOnMount() {}
 
   render() {

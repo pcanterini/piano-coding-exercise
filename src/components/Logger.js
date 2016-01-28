@@ -4,6 +4,8 @@ const propTypes = {
   loggerData: PropTypes.array.isRequired,
 };
 
+// TODO: Make it a stateless component
+
 class Logger extends Component {
 
   constructor(props) {

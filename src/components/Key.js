@@ -27,6 +27,7 @@ const Key = ({ pianoKey, keyHandler }) => {
   );
 };
 
+// TODO: Delete commented code after stateless component is converted
 
 // class Key extends Component {
 //
