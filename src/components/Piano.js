@@ -40,7 +40,7 @@ class Piano extends Component {
     this.props.onMount();
   }
 
-  updateKeyState(label) {
+  updateKeyState(label, forceKeyUp) {
     this.setState({
       keys: this.state.keys.map(function toggleKeys(key) {
         return Object.assign({}, key, { isActive: key.label === label });
@@ -48,6 +48,12 @@ class Piano extends Component {
       // Append to logger if not empty
       loggerData: label ? this.state.loggerData.concat(label) : this.state.loggerData,
     });
+
+    if (forceKeyUp) {
+      setTimeout(() => {
+        this.updateKeyState();
+      }, 500);
+    }
   }
 
   playPiano(playList) {
@@ -66,7 +72,7 @@ class Piano extends Component {
         component.updateKeyState();
         return;
       }
-      component.updateKeyState(playList[count]);
+      component.updateKeyState(playList[count], true);
       count += 1;
     }, 1000);
 

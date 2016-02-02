@@ -21,6 +21,7 @@ const Key = ({ pianoKey, keyHandler }) => {
       className={keyClassNames}
       onMouseDown={_onMouseDown}
       onMouseUp={_onMouseUp}
+      onMouseOut={_onMouseUp}
     >
       <span className="label">{pianoKey.label}</span>
     </div>
