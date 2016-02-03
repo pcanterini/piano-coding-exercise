@@ -7,13 +7,11 @@ class App extends Component {
     super(props);
   }
 
-  handleOnMount() {}
-
   render() {
     return (
       <div>
         <h1 className="title-header">Piano Coding Exercise</h1>
-        <Piano onMount={this.handleOnMount} />
+        <Piano />
       </div>
     );
   }

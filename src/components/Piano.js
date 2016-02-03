@@ -1,11 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Logger from './Logger';
 import Player from './Player';
 import Key from './Key';
-
-const propTypes = {
-  onMount: PropTypes.func.isRequired,
-};
 
 class Piano extends Component {
 
@@ -34,10 +30,6 @@ class Piano extends Component {
     // TODO: Use arrow functions for autobinding
     this.updateKeyState = this.updateKeyState.bind(this);
     this.playPiano = this.playPiano.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.onMount();
   }
 
   updateKeyState(label, forceKeyUp) {
@@ -113,5 +105,4 @@ class Piano extends Component {
 
 }
 
-Piano.propTypes = propTypes;
 export default Piano;
