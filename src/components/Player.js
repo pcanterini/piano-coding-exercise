@@ -8,42 +8,32 @@ const propTypes = {
 
 class Player extends Component {
 
-  // TODO: Use static state
-  constructor(props) {
-    super(props);
+  state = {
+    isValidInput: false,
+    inputStr: '',
+  };
 
-    this.state = {
-      isValidInput: false,
-      inputStr: '',
-    };
-
-    // TODO: Use arrow functions instead
-    this._onChange = this._onChange.bind(this);
-    this._onClick = this._onClick.bind(this);
-    this._onBlur = this._onBlur.bind(this);
-  }
-
-  _onBlur() {
+  _onBlur = () => {
     // Attempts to format invalid input so user doesn't have to.
     this.autoFormatInput();
-  }
+  };
 
-  _onChange(e) {
+  _onChange = e => {
     const value = e.currentTarget.value;
     this.setState({
       isValidInput: this.isValidInput(value),
       inputStr: value,
     });
-  }
+  };
 
-  _onClick() {
+  _onClick = () => {
     if (this.state.isValidInput) {
       const playList = this.createPlaylistFromCSV(this.state.inputStr);
 
       // Play the piano
       this.props.handlePlay(playList);
     }
-  }
+  };
 
   createPlaylistFromCSV(str) {
     return str.split(',');
