@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import Piano from '../components/Piano';
 
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div>
@@ -15,7 +10,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
