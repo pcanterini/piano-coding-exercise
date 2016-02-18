@@ -5,34 +5,25 @@ import Key from './Key';
 
 class Piano extends Component {
 
-  // TODO: Contructor can probably be romoved, use static for state intead
-  constructor(props) {
-    super(props);
+  state = {
+    keys: [
+      { label: 'C', type: 'major', isActive: false },
+      { label: 'c', type: 'minor', isActive: false },
+      { label: 'D', type: 'major', isActive: false },
+      { label: 'd', type: 'minor', isActive: false },
+      { label: 'E', type: 'major', isActive: false },
+      { label: 'F', type: 'major', isActive: false },
+      { label: 'f', type: 'minor', isActive: false },
+      { label: 'G', type: 'major', isActive: false },
+      { label: 'g', type: 'minor', isActive: false },
+      { label: 'A', type: 'major', isActive: false },
+      { label: 'a', type: 'minor', isActive: false },
+      { label: 'B', type: 'major', isActive: false },
+    ],
+    loggerData: [],
+  };
 
-    this.state = {
-      keys: [
-        { label: 'C', type: 'major', isActive: false },
-        { label: 'c', type: 'minor', isActive: false },
-        { label: 'D', type: 'major', isActive: false },
-        { label: 'd', type: 'minor', isActive: false },
-        { label: 'E', type: 'major', isActive: false },
-        { label: 'F', type: 'major', isActive: false },
-        { label: 'f', type: 'minor', isActive: false },
-        { label: 'G', type: 'major', isActive: false },
-        { label: 'g', type: 'minor', isActive: false },
-        { label: 'A', type: 'major', isActive: false },
-        { label: 'a', type: 'minor', isActive: false },
-        { label: 'B', type: 'major', isActive: false },
-      ],
-      loggerData: [],
-    };
-
-    // TODO: Use arrow functions for autobinding
-    this.updateKeyState = this.updateKeyState.bind(this);
-    this.playPiano = this.playPiano.bind(this);
-  }
-
-  updateKeyState(label, forceKeyUp) {
+  updateKeyState = (label, forceKeyUp) => {
     this.setState({
       keys: this.state.keys.map(function toggleKeys(key) {
         return Object.assign({}, key, { isActive: key.label === label });
@@ -46,9 +37,9 @@ class Piano extends Component {
         this.updateKeyState();
       }, 500);
     }
-  }
+  };
 
-  playPiano(playList) {
+  playPiano = playList => {
     let count = 0;
     const component = this;
     const existingTimer = this.state.timer;
@@ -72,17 +63,15 @@ class Piano extends Component {
       isPlaying: true,
       timer,
     });
-  }
+  };
 
   renderKeys() {
-    // TODO: remove component and use arrow function
-    const component = this;
-    return this.state.keys.map(function mapKeys(key, i) {
+    return this.state.keys.map((key, i) => {
       return (
         <Key
           key={i}
           pianoKey={key}
-          keyHandler={component.updateKeyState}
+          keyHandler={this.updateKeyState}
         />
       );
     });
