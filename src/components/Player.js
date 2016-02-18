@@ -51,7 +51,7 @@ class Player extends Component {
 
   isValidInput(str) {
     // comma separated valid letters with no space or trailing comma.
-    return /^,?([CDEFGAB]{1},)*[CDEFGAB]$/i.test(str);
+    return /^([CDEFGABcdfga]{1},)*[CDEFGABcdfga]$/.test(str);
   }
 
   autoFormatInput() {
