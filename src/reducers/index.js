@@ -1,13 +1,20 @@
-import React from 'react';
-import Piano from '../components/Piano';
+let nextPianoId = 0;
 
-export default function pianos(state = [], action) {
+const initialState = {
+  pianos: [],
+};
+
+export default function pianos(state = initialState, action) {
   switch (action.type) {
     case 'ADD_PIANO':
-      return [
-        <Piano key={state.length}/>,
-        ...state,
-      ];
+      return Object.assign({}, state, {
+        pianos: [
+          ...state.pianos,
+          {
+            id: nextPianoId += 1,
+          },
+        ],
+      });
     default:
       return state;
   }
