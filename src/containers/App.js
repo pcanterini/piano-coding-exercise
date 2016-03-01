@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { createStore } from 'redux';
-import pianos from '../reducers';
-import { addPiano } from '../actions';
 import Piano from '../components/Piano';
+import pianoApp from '../reducers';
+import { addPiano } from '../actions';
 
-const store = createStore(pianos);
+const store = createStore(pianoApp);
 
 const propTypes = {
   onAppRender: PropTypes.func.isRequired,
@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     const generatePianos = () => {
       return store.getState().pianos.map(piano => {
-        return <Piano key={piano.id} />;
+        return <Piano store={store} key={piano.id} />;
       });
     };
 

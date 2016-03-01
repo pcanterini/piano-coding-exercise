@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Logger from './Logger';
 import Player from './Player';
 import Key from './Key';
 
+const propTypes = {
+  store: PropTypes.object.isRequired,
+};
+
 class Piano extends Component {
 
+  // TODO: Convert to redux
   state = {
-    keys: [
-      { label: 'C', type: 'major', isActive: false },
-      { label: 'c', type: 'minor', isActive: false },
-      { label: 'D', type: 'major', isActive: false },
-      { label: 'd', type: 'minor', isActive: false },
-      { label: 'E', type: 'major', isActive: false },
-      { label: 'F', type: 'major', isActive: false },
-      { label: 'f', type: 'minor', isActive: false },
-      { label: 'G', type: 'major', isActive: false },
-      { label: 'g', type: 'minor', isActive: false },
-      { label: 'A', type: 'major', isActive: false },
-      { label: 'a', type: 'minor', isActive: false },
-      { label: 'B', type: 'major', isActive: false },
-    ],
+    keys: this.props.store.getState().keys,
     loggerData: [],
   };
 
   updateKeyState = (label, forceKeyUp) => {
+    // TODO: add toggle key redux action
     this.setState({
       keys: this.state.keys.map(function toggleKeys(key) {
         return Object.assign({}, key, { isActive: key.label === label });
@@ -91,7 +84,7 @@ class Piano extends Component {
       </div>
     );
   }
-
 }
 
+Piano.propTypes = propTypes;
 export default Piano;
