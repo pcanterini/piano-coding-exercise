@@ -1,16 +1,20 @@
 
 import React from 'react';
+import { createStore } from 'redux';
 import { shallow } from 'enzyme';
 import Piano from '../../src/components/Piano';
 import Player from '../../src/components/Player';
 import Key from '../../src/components/Key';
 import Logger from '../../src/components/Logger';
+import pianoApp from '../../src/reducers';
 
 describe('(Component) Piano', () => {
 
+  const store = createStore(pianoApp);
+
   const props = {
-    onMount: () => {}
-  }
+    store,
+  };
 
   it('contains 12 keys', () => {
     const wrapper = shallow(<Piano {...props} />);
