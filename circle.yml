@@ -1,0 +1,15 @@
+machine:
+  environment:
+    USER_NAME: pcanterini
+    USER_EMAIL: pedro@pcanterini.com
+
+test:
+  override:
+    - npm test
+
+deployment:
+  production:
+    branch: master
+    owner: pcanterini
+    commands:
+      - ./bin/automated

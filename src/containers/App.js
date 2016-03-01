@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div>
         <h1 className="title-header">Piano Coding Exercise</h1>
-        <button onClick={this.onAddPiano}>Add Piano</button>
+        <button onClick={this.onAddPiano}>Add Another Piano</button>
         {generatePianos()}
       </div>
     );
