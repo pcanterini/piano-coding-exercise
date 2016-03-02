@@ -11,7 +11,6 @@ import pianoApp from '../../src/reducers';
 describe('(Component) Piano', () => {
 
   const store = createStore(pianoApp);
-
   const props = {
     store,
   };
